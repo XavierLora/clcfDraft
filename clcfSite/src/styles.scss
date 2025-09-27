@@ -1,0 +1,125 @@
+/* Theme Declarations */
+$primary: #064225 !default;
+$secondary: #cfd3cb;
+$info: #85824c;
+$light-dark-green: #79a293;
+$light-green: #78a28b;
+
+$custom-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'info': $info,
+  'light-dark-green': $light-dark-green,
+  'light-green': $light-green,
+);
+
+/* Template Class Functions */
+@each $name, $color in $custom-colors {
+  .clcf-bg-#{$name} {
+    background-color: $color !important;
+  }
+  .clcf-color-#{$name} {
+    color: $color !important;
+  }
+  .clcf-border-#{$name} {
+    border: 2px solid $color !important;
+  }
+}
+
+/* Page Declarations */
+
+// Needed to trigger the intersection observer for the navbar to see when it hits the top of the page
+.nav-sentinel {
+  height: 1px;
+}
+
+body {
+  background-color: $secondary !important;
+  font-family: 'Big Shoulders Stencil', sans-serif !important;
+  font-stretch: wider !important;
+  box-sizing: border-box;
+  height: 120vh;
+}
+
+//Needed for offset body from floating navbar
+.body-content{
+  margin-top: 8rem;
+}
+/* Navbar */
+.page-width-controller {
+  padding: 1rem;
+  transition: padding 0.5s ease-in-out;
+
+  @media (min-width: 768px) { 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 992px) { 
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+nav{
+  //revisit once all content is added
+  height: fit-content;
+  transition: border-radius 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+/* Navbar Animations and Classes */
+.showNavBorderRadiusTransition {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.showNavPaddingTransition {
+ padding: 0;
+}
+
+.openNavBarMobile{
+  //revisit once content is added
+  height: fit-content;
+}
+
+.mat-icon {
+  font-size: 2rem !important;
+  height: 32px !important; /* Match font-size */
+  width: 32px !important; /* Match font-size */
+  &:hover,&:target {
+    color: $info !important;
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+//Body
+.carousel {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  transition: margin 0.5s ease-in-out, height 0.5s ease-in-out;
+
+  //Check if I can do below with tailwind
+
+  @media (min-width: 768px) { 
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  @media (min-width: 992px) { 
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+} 
+
+/* Manual Overrides */
+
+button{
+  border: none;
+  background-color: transparent;
+  color: default;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+@import "tailwindcss";
