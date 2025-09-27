@@ -38,6 +38,7 @@ body {
   font-family: 'Big Shoulders Stencil', sans-serif !important;
   font-stretch: wider !important;
   box-sizing: border-box;
+  //TODO: Remove once content is added
   height: 120vh;
 }
 
@@ -73,7 +74,7 @@ nav{
 }
 
 .showNavPaddingTransition {
- padding: 0;
+  padding: 0;
 }
 
 .openNavBarMobile{
@@ -119,6 +120,7 @@ button{
 }
 
 a{
+  //TODO: Revisit design later
   text-decoration: none !important;
 }
 
