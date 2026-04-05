@@ -1,0 +1,11 @@
+{
+  "routes": {
+    "/": {},
+    "/about": {},
+    "/bulletin": {},
+    "/coaches": {},
+    "/home": {},
+    "/parents": {},
+    "/sponsor": {}
+  }
+}
