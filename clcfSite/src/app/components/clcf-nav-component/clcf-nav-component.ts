@@ -5,7 +5,6 @@ import {
   computed,
   ElementRef,
   inject,
-  OnInit,
   PLATFORM_ID,
   signal,
   viewChild,
@@ -27,6 +26,8 @@ export class ClcfNavigationComponent implements AfterViewInit {
   readonly layoutService = inject(ClcfLayoutService);
   private readonly router = inject(Router);
 
+  currentUrl = signal(this.router.url);
+
   /* Component Declarations */
   navLinks = NAV_BAR_LINKS;
   navSentinel = viewChild.required<ElementRef>('navSentinel');
@@ -38,6 +39,7 @@ export class ClcfNavigationComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {
+    this.currentUrl.set(this.router.url);
     if (isPlatformBrowser(this.platformId)) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -65,6 +67,7 @@ export class ClcfNavigationComponent implements AfterViewInit {
 
   navigateTo(path: string){
     this.router.navigate([path]);
-    this.isMobileNavMenuOpen.set(false); // Close the mobile menu after navigation
+    this.currentUrl.set(path);
+    this.isMobileNavMenuOpen.set(false);
   }
 }

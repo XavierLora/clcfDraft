@@ -4,14 +4,14 @@
   [ngClass]="{ showNavPaddingTransition: isNavbarAtTop() }"
 >
   <nav
-    class="clcf-bg-primary shadow-2xl rounded-2xl inset-shadow-sm p-3"
+    class="clcf-bg-primary shadow-xl rounded-2xl inset-shadow-sm p-3"
     [ngClass]="{
       showNavBorderRadiusTransition: isNavbarAtTop(),
       openNavBarMobile: isMobileNavMenuOpen(),
     }"
   >
     <div class="flex items-center justify-between">
-      <a href="/">
+      <a href="javascript:void(0)" (click)="navigateTo('/home')">
         <img
           class="rounded"
           [ngSrc]="'assets/CLCFLOGO.jpg'"
@@ -27,13 +27,13 @@
             @if (!isDarkMode()) {
               <mat-icon
                 fontIcon="sunny"
-                class="clcf-color-info"
+                class="clcf-color-white"
                 (click)="toggleDarkMode()"
               ></mat-icon>
             } @else {
               <mat-icon
                 fontIcon="bedtime"
-                class="clcf-color-info"
+                class="clcf-color-white"
                 (click)="toggleDarkMode()"
               ></mat-icon>
             }
@@ -42,13 +42,13 @@
             @if (!isMobileNavMenuOpen()) {
               <mat-icon
                 fontIcon="menu"
-                class="clcf-color-info"
+                class="clcf-color-white"
                 (click)="toggleHamburger()"
               ></mat-icon>
             } @else {
               <mat-icon
                 fontIcon="close"
-                class="clcf-color-info"
+                class="clcf-color-white"
                 (click)="toggleHamburger()"
               ></mat-icon>
             }
@@ -67,23 +67,33 @@
 <ng-template #navItems>
   <div
     [ngClass]="
-      layoutService.isMobileView() ? 'flex flex-col mt-3 gap-3 ms-2' : 'flex gap-5 items-center me-5'
+      layoutService.isMobileView()
+        ? 'flex flex-col mt-3 gap-3 ms-2'
+        : 'flex gap-5 items-center me-5'
     "
   >
+    @if (currentUrl() !== '/home') {
+      <a class="clcf-color-white text-xl" href="javascript:void(0)" (click)="navigateTo('/home')"
+        >Home</a
+      >
+    }
     @for (link of navLinks; track link) {
-      <a class="clcf-color-info text-xl" href="javascript:void(0)" (click)="navigateTo(link.path)">{{
-        link.name
-      }}</a>
+      <a
+        class="clcf-color-white text-xl"
+        href="javascript:void(0)"
+        (click)="navigateTo(link.path)"
+        >{{ link.name }}</a
+      >
     }
     <!--TODO: Revisit design and spacing-->
     @if (!layoutService.isMobileView()) {
       <button>
         @if (!isDarkMode()) {
-          <mat-icon fontIcon="sunny" class="clcf-color-info" (click)="toggleDarkMode()"></mat-icon>
+          <mat-icon fontIcon="sunny" class="clcf-color-white" (click)="toggleDarkMode()"></mat-icon>
         } @else {
           <mat-icon
             fontIcon="bedtime"
-            class="clcf-color-info"
+            class="clcf-color-white"
             (click)="toggleDarkMode()"
           ></mat-icon>
         }

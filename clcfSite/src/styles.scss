@@ -11,14 +11,16 @@ $dark-theme: (
   'info': $info,
   'light-dark-green': $light-dark-green,
   'light-green': $light-green,
+  'white': $info,
 );
 
 $light-theme: (
   'primary': $primary,
   'secondary': $info,
-  'info': $info,
+  'info': $secondary,
   'light-dark-green': $light-dark-green,
   'light-green': $light-green,
+  'white': $info,
 );
 
 /* Template Class Functions */
@@ -78,7 +80,7 @@ body {
 
 //Needed for offset body from floating navbar
 .body-content{
-  margin-top: 8rem;
+  margin-top: 7rem;
 }
 /* Navbar */
 .page-width-controller {
@@ -156,6 +158,23 @@ button{
 a{
   //TODO: Revisit design later
   text-decoration: none !important;
+}
+
+.image-container {
+  height: 15rem;
+  width: 100%;
+  @media (min-width: 576px) { 
+    height: 15rem;
+    width: 67%;
+  }
+  @media (min-width: 768px) { 
+    height: 25rem;
+    width: 67%;
+  }
+  @media (min-width: 992px) { 
+    height: 25rem;
+    width: 55%;
+  }
 }
 
 @import "tailwindcss";
