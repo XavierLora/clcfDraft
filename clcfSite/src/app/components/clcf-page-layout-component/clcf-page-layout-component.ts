@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ClcfNavigationComponent } from '../clcf-nav-component/clcf-nav-component';
 import { RouterOutlet } from '@angular/router';
+import { ClcfLayoutService } from '../../services/clcf-layout-service';
 
 @Component({
   selector: 'clcf-page-layout-component',
@@ -12,5 +13,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './clcf-page-layout-component.html',
 })
 export class ClcfPageLayoutComponent {
+  private readonly layoutService = inject(ClcfLayoutService);
+
+  isDarkMode = computed(() => {
+    return this.layoutService.isDarkMode();
+  });
 
 }

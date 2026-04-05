@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ClcfLayoutService } from '../../services/clcf-layout-service';
+import { NAV_BAR_LINKS } from './clcf-nav.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'clcf-nav-component',
@@ -22,12 +24,17 @@ import { ClcfLayoutService } from '../../services/clcf-layout-service';
 export class ClcfNavigationComponent implements AfterViewInit {
   /* Dependencies */
   private platformId = inject<Object>(PLATFORM_ID); //This is needed to bypass Intersection Observer issues in local
-  readonly LayoutService = inject(ClcfLayoutService);
+  readonly layoutService = inject(ClcfLayoutService);
+  private readonly router = inject(Router);
 
   /* Component Declarations */
+  navLinks = NAV_BAR_LINKS;
   navSentinel = viewChild.required<ElementRef>('navSentinel');
   isNavbarAtTop = signal(false);
   isMobileNavMenuOpen = signal(false);
+  isDarkMode = computed(() => {
+    return this.layoutService.isDarkMode();
+  });
 
 
   ngAfterViewInit(): void {
@@ -50,5 +57,14 @@ export class ClcfNavigationComponent implements AfterViewInit {
 
   toggleHamburger(){
     this.isMobileNavMenuOpen.set(!this.isMobileNavMenuOpen());
+  }
+
+  toggleDarkMode(){ 
+    this.layoutService.isDarkModeSignal.set(!this.layoutService.isDarkModeSignal());
+  }
+
+  navigateTo(path: string){
+    this.router.navigate([path]);
+    this.isMobileNavMenuOpen.set(false); // Close the mobile menu after navigation
   }
 }

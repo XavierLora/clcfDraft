@@ -1,11 +1,11 @@
 /* Theme Declarations */
-$primary: #064225 !default;
-$secondary: #cfd3cb;
-$info: #85824c;
+$primary: #043F23 !default;
+$secondary: #2b2a33;
+$info: #ffffff;
 $light-dark-green: #79a293;
 $light-green: #78a28b;
 
-$custom-colors: (
+$dark-theme: (
   'primary': $primary,
   'secondary': $secondary,
   'info': $info,
@@ -13,18 +13,55 @@ $custom-colors: (
   'light-green': $light-green,
 );
 
+$light-theme: (
+  'primary': $primary,
+  'secondary': $info,
+  'info': $info,
+  'light-dark-green': $light-dark-green,
+  'light-green': $light-green,
+);
+
 /* Template Class Functions */
-@each $name, $color in $custom-colors {
-  .clcf-bg-#{$name} {
-    background-color: $color !important;
+.dark-theme {
+  @each $name, $color in $dark-theme {
+    .clcf-bg-#{$name} {
+      background-color: $color !important;
+    }
+    .clcf-color-#{$name} {
+      color: $color !important;
+    }
+    .clcf-border-#{$name} {
+      border: 2px solid $color !important;
+    }
   }
-  .clcf-color-#{$name} {
-    color: $color !important;
-  }
-  .clcf-border-#{$name} {
-    border: 2px solid $color !important;
+
+  &.background {
+    background-color: $secondary !important;
+    //TODO: Remove once content is added
+    height: 120vh;
   }
 }
+
+.light-theme {
+  @each $name, $color in $light-theme {
+    .clcf-bg-#{$name} {
+      background-color: $color !important;
+    }
+    .clcf-color-#{$name} {
+      color: $color !important;
+    }
+    .clcf-border-#{$name} {
+      border: 2px solid $color !important;
+    }
+  }
+
+  &.background {
+    background-color: $info !important;
+    //TODO: Remove once content is added
+    height: 120vh;
+  }
+}
+
 
 /* Page Declarations */
 
@@ -34,12 +71,9 @@ $custom-colors: (
 }
 
 body {
-  background-color: $secondary !important;
   font-family: 'Big Shoulders Stencil', sans-serif !important;
   font-stretch: wider !important;
   box-sizing: border-box;
-  //TODO: Remove once content is added
-  height: 120vh;
 }
 
 //Needed for offset body from floating navbar
@@ -77,7 +111,7 @@ nav{
   padding: 0;
 }
 
-.openNavBarMobile{
+.openNavBarMobile {
   //revisit once content is added
   height: fit-content;
 }
@@ -86,11 +120,11 @@ nav{
   font-size: 2rem !important;
   height: 32px !important; /* Match font-size */
   width: 32px !important; /* Match font-size */
-  &:hover,&:target {
-    color: $info !important;
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+  // &:hover,&:target {
+  //   color: $info !important;
+  //   cursor: pointer;
+  //   transform: scale(1.1);
+  // }
 }
 
 //Body

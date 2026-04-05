@@ -10,8 +10,14 @@ export class ClcfLayoutService implements OnDestroy{
   private subscription: Subscription;
 
   private readonly isMobileViewSignal = signal(false);
+  readonly isDarkModeSignal = signal(true);
+
   readonly isMobileView = computed(() => {
     return this.isMobileViewSignal();
+  });
+
+  readonly isDarkMode = computed(() => {
+    return this.isDarkModeSignal();
   });
 
   constructor(){

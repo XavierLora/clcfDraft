@@ -1,4 +1,6 @@
-<clcf-nav-component/>
-<div class="body-content">
-    <router-outlet/>
+<div class="background" [class]="{ 'dark-theme': isDarkMode(), 'light-theme': !isDarkMode() }">
+  <clcf-nav-component />
+  <div class="body-content">
+    <router-outlet />
+  </div>
 </div>
