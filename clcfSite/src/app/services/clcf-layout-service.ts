@@ -22,7 +22,7 @@ export class ClcfLayoutService implements OnDestroy{
 
   constructor(){
     this.subscription = this.breakpointObserver
-    .observe([ Breakpoints.XSmall, Breakpoints.Small ])
+    .observe([ Breakpoints.XSmall ])
     .subscribe((result) => {
       if (result.matches) {
         this.isMobileViewSignal.set(true);
