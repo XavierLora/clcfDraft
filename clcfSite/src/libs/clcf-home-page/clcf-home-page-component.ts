@@ -10,9 +10,4 @@ import { ClcfLayoutService } from '../../app/services/clcf-layout-service';
   standalone: true,
   templateUrl: './clcf-home-page-component.html',
 })
-export class ClcfHomePageComponent {
-  readonly layoutService = inject(ClcfLayoutService);
-
-  isMobile = computed(() => this.layoutService.isMobileView());
-
-}
+export class ClcfHomePageComponent {}
