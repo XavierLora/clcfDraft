@@ -40,7 +40,7 @@ $light-theme: (
   &.background {
     background-color: $secondary !important;
     //TODO: Remove once content is added
-    height: 120vh;
+    height: fit-content;
   }
 }
 
@@ -59,8 +59,7 @@ $light-theme: (
 
   &.background {
     background-color: $info !important;
-    //TODO: Remove once content is added
-    height: 120vh;
+    height: fit-content;
   }
 }
 
@@ -127,6 +126,12 @@ nav{
   //   cursor: pointer;
   //   transform: scale(1.1);
   // }
+}
+
+.mat-icon-sm { 
+  font-size: 1rem !important;
+  height: 16px !important; /* Match font-size */
+  width: 16px !important; /* Match font-size */
 }
 
 //Body

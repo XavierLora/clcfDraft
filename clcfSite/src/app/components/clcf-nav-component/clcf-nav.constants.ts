@@ -1,3 +1,5 @@
+//TODO: Move this to a service
+
 export interface NavLink {
   name: string;
   path: string;

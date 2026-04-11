@@ -1,5 +1,5 @@
 <div class="page-width-controller">
-  <div class="d-flex flex-column">
+  <div class="flex flex-col items-center">
     <div class="w-full">
       <div class="relative">
         <img
@@ -12,7 +12,7 @@
         />
 
         <div
-          class="absolute clcf-bg-info left-4 right-4 top-50 rounded-2xl shadow-xl px-4 pt-4 md:p-8 md:right-4 md:left-auto md:w-3/4 lg:w-3/5"
+          class="absolute clcf-bg-info left-4 right-4 top-50 rounded-2xl shadow-xl px-4 pt-4 sm:top-70 md:p-8 md:right-4 md:left-auto md:w-3/4 lg:w-3/5"
           style="z-index: 10"
         >
           <h1 class="text-2xl md:text-5xl clcf-color-secondary text-center text-shadow-md pb-2 md:pb-4">
@@ -27,6 +27,57 @@
             and events!
           </p>
         </div>
+      </div>
+    </div>
+    <div class="flex w-full px-4 gap-4 mb-8 flex-col sm:flex-row mt-50 sm:mt-20 md:mt-30">
+      <div class="relative rounded-2xl mx-auto shadow-xl">
+        <img
+          class="rounded-2xl"
+          ngSrc="assets/toss.jpg"
+          alt="CLCF Home Page Header Image"
+          priority
+          height="1464"
+          width="2048"
+        />
+        <div class="absolute bottom-0 clcf-bg-info w-full rounded-b-2xl inset-shadow-xs">
+          <h3 class="clcf-color-secondary px-2 pt-2">About Us</h3>
+          <p class="clcf-color-secondary px-2">Learn more about our organization, FAQ's, fields, and more!</p>
+          <div class="flex px-2 pb-2 align-items-center justify-content-center">
+            <a
+              class="clcf-color-secondary"
+              (click)="routeToPage('/about')"
+            >Learn More
+              <mat-icon
+                fontIcon="arrow_forward"
+                class="clcf-color-secondary mat-icon-sm"
+              ></mat-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl mx-auto shadow-xl">
+        <img
+          class="rounded-2xl"
+          ngSrc="assets/coachesPhoto.jpg"
+          alt="CLCF Home Page Header Image"
+          priority
+          height="1464"
+          width="2048"
+        />
+
+      </div>
+
+      <div class="rounded-2xl mx-auto shadow-xl">
+        <img
+          class="rounded-2xl"
+          ngSrc="assets/pitcher.jpg"
+          alt="CLCF Home Page Header Image"
+          priority
+          height="1464"
+          width="2048"
+        />
+
       </div>
     </div>
   </div>
