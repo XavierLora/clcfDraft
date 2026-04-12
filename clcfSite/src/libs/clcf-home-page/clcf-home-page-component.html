@@ -19,7 +19,7 @@
             Welcome to CLCF Cal Ripken
           </h1>
           <p
-            class="text-lg md:text-2xl clcf-color-secondary text-center text-shadow-md px-6 pb-4 md:px-8"
+            class="text-lg md:text-2xl clcf-color-secondary text-center text-shadow-md px-4 pb-4 md:px-8 default-text"
           >
             Join us in creating a close-knit community that supports and celebrates our young
             athletes. Whether you're a family member, baseball enthusiast, or a community member, be
@@ -29,56 +29,34 @@
         </div>
       </div>
     </div>
-    <div class="flex w-full px-4 gap-4 mb-8 flex-col sm:flex-row mt-50 sm:mt-20 md:mt-30">
-      <div class="relative rounded-2xl mx-auto shadow-xl">
+    <div class="flex w-full px-4 gap-4 mb-8 flex-col sm:flex-row mt-64 sm:mt-20 md:mt-30">
+      @for(link of homePageLink; track link){
+        <div class="relative rounded-2xl mx-auto shadow-xl">
         <img
           class="rounded-2xl"
-          ngSrc="assets/toss.jpg"
+          [ngSrc]="link.imgUrl"
           alt="CLCF Home Page Header Image"
           priority
           height="1464"
           width="2048"
         />
-        <div class="absolute bottom-0 clcf-bg-info w-full rounded-b-2xl inset-shadow-xs">
-          <h3 class="clcf-color-secondary px-2 pt-2">About Us</h3>
-          <p class="clcf-color-secondary px-2">Learn more about our organization, FAQ's, fields, and more!</p>
-          <div class="flex px-2 pb-2 align-items-center justify-content-center">
+        <div class="absolute bottom-0 clcf-bg-info w-full rounded-b-2xl inset-shadow-xs p-2 opacity-85">
+          <div class="flex px-2 align-items-center justify-content-center">
             <a
               class="clcf-color-secondary"
-              (click)="routeToPage('/about')"
-            >Learn More
+              (click)="routeToPage(link.path)"
+            >
+              <span class="border-b-2 me-1 text-lg">{{ link.label }}</span>
               <mat-icon
                 fontIcon="arrow_forward"
                 class="clcf-color-secondary mat-icon-sm"
               ></mat-icon>
             </a>
           </div>
+          <p class="clcf-color-secondary ps-2 default-text">{{ link.description }}</p>
         </div>
       </div>
-
-      <div class="rounded-2xl mx-auto shadow-xl">
-        <img
-          class="rounded-2xl"
-          ngSrc="assets/coachesPhoto.jpg"
-          alt="CLCF Home Page Header Image"
-          priority
-          height="1464"
-          width="2048"
-        />
-
-      </div>
-
-      <div class="rounded-2xl mx-auto shadow-xl">
-        <img
-          class="rounded-2xl"
-          ngSrc="assets/pitcher.jpg"
-          alt="CLCF Home Page Header Image"
-          priority
-          height="1464"
-          width="2048"
-        />
-
-      </div>
+      }
     </div>
   </div>
 </div>

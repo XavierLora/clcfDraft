@@ -75,6 +75,11 @@ body {
   font-family: 'Big Shoulders Stencil', sans-serif !important;
   font-stretch: wider !important;
   box-sizing: border-box;
+
+  .default-text {
+    font-family: 'Lato', sans-serif !important;
+    font-stretch: normal !important;
+  }
 }
 
 //Needed for offset body from floating navbar
@@ -163,6 +168,7 @@ button{
 a{
   //TODO: Revisit design later
   text-decoration: none !important;
+  cursor: pointer;
 }
 
 @import "tailwindcss";

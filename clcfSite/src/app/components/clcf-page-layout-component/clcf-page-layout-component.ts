@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { ClcfNavigationComponent } from '../clcf-nav-component/clcf-nav-component';
 import { RouterOutlet } from '@angular/router';
-import { ClcfLayoutService } from '../../services/clcf-layout-service';
+import { ClcfLayoutService } from '../../services/clcf-layout-service/clcf-layout-service';
 
 @Component({
   selector: 'clcf-page-layout-component',

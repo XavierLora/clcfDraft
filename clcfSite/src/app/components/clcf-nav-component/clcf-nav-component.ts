@@ -10,9 +10,9 @@ import {
   viewChild,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ClcfLayoutService } from '../../services/clcf-layout-service';
-import { NAV_BAR_LINKS } from './clcf-nav.constants';
+import { ClcfLayoutService } from '../../services/clcf-layout-service/clcf-layout-service';
 import { Router } from '@angular/router';
+import { NAV_BAR_LINKS } from '../../services/clcf-navigation-service/clcf-navigation-service';
 
 @Component({
   selector: 'clcf-nav-component',
